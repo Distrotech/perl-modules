@@ -1,0 +1,15 @@
+[submodule "DB_File"]
+	path = DB_File
+	url = ../DB_File
+[submodule "IO-Socket-INET6"]
+	path = IO-Socket-INET6
+	url = ../IO-Socket-INET6/
+[submodule "IO-Socket-SSL"]
+	path = IO-Socket-SSL
+	url = ../IO-Socket-SSL/
+[submodule "NetAddr-IP"]
+	path = NetAddr-IP
+	url = ../NetAddr-IP
+[submodule "Mail-SpamAssassin"]
+	path = Mail-SpamAssassin
+	url = ../Mail-SpamAssassin/
