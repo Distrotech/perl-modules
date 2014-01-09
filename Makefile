@@ -49,7 +49,19 @@ CPAN_DEPENDS =	IO\:\:HTML \
 		Mail\:\:DKIM \
 		DBI \
 		Encode\:\:Detect \
-		HTTP\:\:Request
+		HTTP\:\:Request \
+		Convert\:\:BinHex \
+		Convert\:\:TNEF \
+		DBD\:\:SQLite \
+		Filesys\:\:Df \
+		IO\:\:Stringy \
+		MIME\:\:Tools \
+		Net\:\:CIDR \
+		Net\:\:IP \
+		OLE\:\:Storage_Lite \
+		Sys\:\:Hostname\:\:Long \
+		Sys\:\:SigAction \
+		Test\:\:Pod
 
 CPAN_MODS =	Font\:\:TTF \
 		XML\:\:Simple \
