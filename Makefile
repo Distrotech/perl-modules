@@ -61,7 +61,77 @@ CPAN_DEPENDS =	IO\:\:HTML \
 		OLE\:\:Storage_Lite \
 		Sys\:\:Hostname\:\:Long \
 		Sys\:\:SigAction \
-		Test\:\:Pod
+		Test\:\:Pod \
+		Crypt\:\:OpenSSL\:\:X509 \
+		IO\:\:SessionData \
+		Crypt\:\:SSLeay \
+		Class\:\:Inspector \
+		Task\:\:Weaken \
+		Mozilla\:\:CA \
+		LWP\:\:Protocol\:\:https \
+		Try\:\:Tiny \
+		SOAP\:\:Lite \
+		MT \
+		XMLRPC\:\:Lite \
+		Coro \
+		Net\:\:SSLeay \
+		Config\:\:Simple \
+		IO\:\:AIO \
+		AnyEvent\:\:AIO \
+		MIME\:\:Types \
+		Capture\:\:Tiny \
+		Email\:\:Date\:\:Format \
+		MIME\:\:Lite \
+		Net\:\:SMTP\:\:SSL \
+		Net\:\:Daemon \
+		RPC\:\:PlClient \
+		Socket6 \
+		AnyEvent\:\:DNS \
+		AnyEvent\:\:Socket \
+		AnyEvent\:\:Util \
+		FCGI \
+		EV \
+		Test\:\:Refcount \
+		Test\:\:Fatal \
+		Test\:\:Identity \
+		Future \
+		IO\:\:Async \
+		DBIx\:\:Simple \
+		Async\:\:MergePoint \
+		Authen\:\:NTLM \
+		Event \
+		Guard \
+		Socket\:\:GetAddrInfo \
+		POE\:\:Test\:\:Loops \
+		Scalar\:\:List\:\:Utils \
+		IO\:\:Pipely \
+		IO\:\:Tty \
+		POE \
+		Test\:\:Base \
+		Curses \
+		JSON \
+		Test\:\:Requires \
+		Module\:\:ScanDeps \
+		PAR\:\:Dist \
+		File\:\:Remove \
+		Module\:\:Install\:\:Base \
+		YAML\:\:Tiny \
+		Spiffy \
+		Types\:\:Serialiser \
+		JSON\:\:XS \
+		Net\:\:Server\:\:PreFork \
+		BSD\:\:Resource \
+		Data\:\:Flow \
+		IPC\:\:Run3 \
+		Frontier\:\:RPC2 \
+		Authen\:\:SASL \
+		Net\:\:LDAP \
+		WWW\:\:Curl\:\:Easy \
+		Mail\:\:Sendmail \
+		Authen\:\:Smb \
+		Crypt\:\:PasswdMD5 \
+		GSSAPI \
+		Convert\:\:ASN1
 
 CPAN_MODS =	Font\:\:TTF \
 		XML\:\:Simple \
@@ -103,6 +173,8 @@ distclean: clean
 
 install: $(CPAN_DEPENDS) $(CPAN_MODS) $(LOCMODS)
 	@rsync -a $(PERLTMP)/ $(DESTDIR)/
+	install -d $(DESTDIR)/opt/bin
+	ln -sr $(DESTDIR)/usr/bin/perl $(DESTDIR)/opt/bin/perl
 
 %:
 	@export PERL5LIB=$(PERL5LIB); \
