@@ -136,9 +136,7 @@ CPAN_DEPENDS =	IO\:\:HTML \
 CPAN_MODS =	Font\:\:TTF \
 		XML\:\:Simple \
 		Archive\:\:Zip \
-		Pod\:\:Simple\:\:Search \
 		YAML \
-		File\:\:Temp \
 		Term\:\:ReadKey \
 		Text\:\:WrapI18N \
 		Unicode\:\:LineBreak
