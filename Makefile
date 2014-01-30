@@ -131,7 +131,8 @@ CPAN_DEPENDS =	IO\:\:HTML \
 		Authen\:\:Smb \
 		Crypt\:\:PasswdMD5 \
 		GSSAPI \
-		Convert\:\:ASN1
+		Convert\:\:ASN1 \
+		Error
 
 CPAN_MODS =	Font\:\:TTF \
 		XML\:\:Simple \
