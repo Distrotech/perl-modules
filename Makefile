@@ -175,6 +175,9 @@ install: $(CPAN_DEPENDS) $(CPAN_MODS) $(LOCMODS)
 	@rsync -a $(PERLTMP)/ $(DESTDIR)/
 	install -d $(DESTDIR)/opt/bin
 	ln -sr $(DESTDIR)/usr/bin/perl $(DESTDIR)/opt/bin/perl
+	if [ -e $(DESTDIR)/usr/bin/mt ];then \
+	  mv $(DESTDIR)/usr/bin/mt $(DESTDIR)/usr/bin/MT; \
+	fi
 
 %:
 	@export PERL5LIB=$(PERL5LIB); \
