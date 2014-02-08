@@ -9,7 +9,7 @@ PERL5LIB=$(PERLBLIB)/:$(PERLABLIB):$(PERLALIB)/auto
 
 ARCH=default
 
-LOCMODS= DB_File_mod IO-Socket-INET6_mod IO-Socket-SSL_mod NetAddr-IP_mod Mail-SpamAssassin_mod
+LOCMODS= DB_File_mod IO-Socket-INET6_mod IO-Socket-SSL_mod NetAddr-IP_mod Mail-SpamAssassin_mod Perl-Tk
 
 CPAN_DEPENDS =	IO\:\:HTML \
 		HTTP\:\:Date \
@@ -132,7 +132,22 @@ CPAN_DEPENDS =	IO\:\:HTML \
 		Crypt\:\:PasswdMD5 \
 		GSSAPI \
 		Convert\:\:ASN1 \
-		Error
+		Error \
+		HTML\:\:TreeBuilder \
+		Test\:\:Script \
+		File\:\:Which \
+		Probe\:\:Perl \
+		HTML\:\:FormatText \
+		Crypt\:\:RC4 \
+		Digest\:\:Perl\:\:MD5 \
+		Parse\:\:RecDescent \
+		Spreadsheet\:\:ParseExcel \
+		Spreadsheet\:\:WriteExcel \
+		HTML\:\:Form \
+		HTTP\:\:Server\:\:Simple \
+		WWW\:\:Mechanize \
+		Jcode \
+		Unicode\:\:Map
 
 CPAN_MODS =	Font\:\:TTF \
 		XML\:\:Simple \
@@ -147,6 +162,10 @@ all:
 	git submodule update --init
 	@echo "There is no all target run make install but i did turn on the submodules"
 
+Perl-Tk_mod:
+	@export PERL5LIB=$(PERL5LIB); \
+	cd $(subst _mod,, $@) && git clean -x -f -d && perl Makefile.PL X11INC=/opt/Xorg/include && make && make DESTDIR=$(PERLTMP) install && touch ../$@
+
 Mail-SpamAssassin_mod:
 	@export PERL5LIB=$(PERL5LIB); \
 	cd $(subst _mod,, $@) && git clean -x -f -d && perl Makefile.PL CONTACT_ADDRESS="the administrator of that system" && make && make DESTDIR=$(PERLTMP) install && touch ../$@
@@ -159,6 +178,7 @@ DB_File_mod:
 
 clean_mods:
 	rm -f $(CPAN_DEPENDS) $(CPAN_MODS) $(LOCMODS)
+	rm -rf $(PERLTMP)
 
 clean: clean_mods
 	for loc_mod in $(LOCMODS);do \
