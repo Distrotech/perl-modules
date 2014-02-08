@@ -13,3 +13,6 @@
 [submodule "Mail-SpamAssassin"]
 	path = Mail-SpamAssassin
 	url = ../Mail-SpamAssassin/
+[submodule "Tk"]
+	path = Perl-Tk
+	url = ../Perl-Tk
