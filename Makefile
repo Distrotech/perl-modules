@@ -147,7 +147,8 @@ CPAN_DEPENDS =	IO\:\:HTML \
 		HTTP\:\:Server\:\:Simple \
 		WWW\:\:Mechanize \
 		Jcode \
-		Unicode\:\:Map
+		Unicode\:\:Map \
+		Locale\:\:gettext_xs
 
 CPAN_MODS =	Font\:\:TTF \
 		XML\:\:Simple \
