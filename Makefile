@@ -115,6 +115,7 @@ CPAN_DEPENDS =	IO\:\:HTML \
 		PAR\:\:Dist \
 		File\:\:Remove \
 		Module\:\:Install\:\:Base \
+		Test\:\:Simple \
 		YAML\:\:Tiny \
 		Spiffy \
 		Types\:\:Serialiser \
