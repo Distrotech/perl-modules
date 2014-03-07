@@ -53,6 +53,7 @@ CPAN_DEPENDS =	IO\:\:HTML \
 		Convert\:\:BinHex \
 		Convert\:\:TNEF \
 		DBD\:\:SQLite \
+		DBD\:\:ODBC \
 		Filesys\:\:Df \
 		IO\:\:Stringy \
 		MIME\:\:Tools \
