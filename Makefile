@@ -44,6 +44,7 @@ CPAN_DEPENDS =	IO\:\:HTML \
 		Net\:\:Ident \
 		Time\:\:Zone \
 		Mail\:\:Send \
+		Path\:\:Class \
 		Crypt\:\:OpenSSL\:\:Random \
 		Crypt\:\:OpenSSL\:\:RSA \
 		Mail\:\:DKIM \
