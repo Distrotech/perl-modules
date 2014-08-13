@@ -54,6 +54,7 @@ CPAN_DEPENDS =	IO\:\:HTML \
 		Convert\:\:BinHex \
 		Convert\:\:TNEF \
 		DBD\:\:SQLite \
+		DBD\:\:ODBC \
 		Filesys\:\:Df \
 		IO\:\:Stringy \
 		MIME\:\:Tools \
@@ -162,7 +163,7 @@ CPAN_MODS =	Font\:\:TTF \
 #		Razor2 \
 
 all:
-	git submodule update --init
+	git submodule update --init || true
 	@echo "There is no all target run make install but i did turn on the submodules"
 
 Perl-Tk_mod:
