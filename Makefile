@@ -159,7 +159,8 @@ CPAN_MODS =	Font\:\:TTF \
 		YAML \
 		Term\:\:ReadKey \
 		Text\:\:WrapI18N \
-		Unicode\:\:LineBreak
+		Unicode\:\:LineBreak \
+		File\:\:HomeDir
 #		Razor2 \
 
 all:
