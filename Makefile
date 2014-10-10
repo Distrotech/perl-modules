@@ -151,7 +151,8 @@ CPAN_DEPENDS =	IO\:\:HTML \
 		WWW\:\:Mechanize \
 		Jcode \
 		Unicode\:\:Map \
-		Locale\:\:gettext_xs
+		Locale\:\:gettext_xs \
+		Mojo\:\:Base
 
 CPAN_MODS =	Font\:\:TTF \
 		XML\:\:Simple \
