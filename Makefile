@@ -3,7 +3,7 @@ PREFIX=/usr
 PERLTMP=/root/.cpan/perlmods
 PERLLOCAL=$(PERLTMP)/$(PREFIX)
 PARCH=$(shell eval `perl -V:archlib`;basename $${archlib})
-PERLBLIB=$(PERLLOCAL)/lib/perl5/site_perl/5.18.1
+PERLBLIB=$(PERLLOCAL)/lib/perl5/site_perl/5.22.0
 PERLALIB=$(PERLBLIB)/$(PARCH)
 PERL5LIB=$(PERLBLIB)/:$(PERLABLIB):$(PERLALIB)/auto
 
@@ -64,7 +64,7 @@ CPAN_DEPENDS =	IO\:\:HTML \
 		Sys\:\:Hostname\:\:Long \
 		Sys\:\:SigAction \
 		Test\:\:Pod \
-		Crypt\:\:OpenSSL\:\:X509 \
+		Locale\:\:Codes \
 		IO\:\:SessionData \
 		Crypt\:\:SSLeay \
 		Class\:\:Inspector \
@@ -75,7 +75,6 @@ CPAN_DEPENDS =	IO\:\:HTML \
 		SOAP\:\:Lite \
 		MT \
 		XMLRPC\:\:Lite \
-		Coro \
 		Net\:\:SSLeay \
 		Config\:\:Simple \
 		IO\:\:AIO \
@@ -105,7 +104,6 @@ CPAN_DEPENDS =	IO\:\:HTML \
 		Guard \
 		Socket\:\:GetAddrInfo \
 		POE\:\:Test\:\:Loops \
-		Scalar\:\:List\:\:Utils \
 		IO\:\:Pipely \
 		IO\:\:Tty \
 		POE \
@@ -152,7 +150,9 @@ CPAN_DEPENDS =	IO\:\:HTML \
 		Jcode \
 		Unicode\:\:Map \
 		Locale\:\:gettext_xs \
-		Mojo\:\:Base
+		Mojo\:\:Base \
+		Module\:\:Build \
+		Object\:\:Accessor
 
 CPAN_MODS =	Font\:\:TTF \
 		XML\:\:Simple \
@@ -169,17 +169,21 @@ all:
 	@echo "There is no all target run make install but i did turn on the submodules"
 
 Perl-Tk_mod:
+	git submodule update --init $(subst _mod,, $@)
 	@export PERL5LIB=$(PERL5LIB); \
 	cd $(subst _mod,, $@) && git clean -x -f -d && perl Makefile.PL X11INC=/opt/Xorg/include && make && make DESTDIR=$(PERLTMP) install && touch ../$@
 
 Mail-SpamAssassin_mod:
+	git submodule update --init $(subst _mod,, $@)
 	@export PERL5LIB=$(PERL5LIB); \
 	cd $(subst _mod,, $@) && git clean -x -f -d && perl Makefile.PL CONTACT_ADDRESS="the administrator of that system" && make && make DESTDIR=$(PERLTMP) install && touch ../$@
 
 DB_File_mod:
+	git submodule update --init $(subst _mod,, $@)
 	cd $(subst _mod,, $@) && ./config.sh $(ARCH) git clean -x -f -d && perl Makefile.PL && make && make DESTDIR=$(PERLTMP) install && touch ../$@
 
 %_mod:
+	git submodule update --init $(subst _mod,, $@)
 	cd $(subst _mod,, $@) && git clean -x -f -d && perl Makefile.PL && make && make DESTDIR=$(PERLTMP) install && touch ../$@
 
 clean_mods:
