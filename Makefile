@@ -152,7 +152,9 @@ CPAN_DEPENDS =	IO\:\:HTML \
 		Locale\:\:gettext_xs \
 		Mojo\:\:Base \
 		Module\:\:Build \
-		Object\:\:Accessor
+		Object\:\:Accessor \
+		CGI \
+		UV
 
 CPAN_MODS =	Font\:\:TTF \
 		XML\:\:Simple \
