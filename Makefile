@@ -64,7 +64,6 @@ CPAN_DEPENDS =	IO\:\:HTML \
 		Sys\:\:Hostname\:\:Long \
 		Sys\:\:SigAction \
 		Test\:\:Pod \
-		Locale\:\:Codes \
 		IO\:\:SessionData \
 		Crypt\:\:SSLeay \
 		Class\:\:Inspector \
