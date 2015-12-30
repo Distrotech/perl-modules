@@ -9,7 +9,7 @@ PERL5LIB=$(PERLBLIB)/:$(PERLABLIB):$(PERLALIB)/auto
 
 ARCH=default
 
-LOCMODS= DB_File_mod IO-Socket-INET6_mod IO-Socket-SSL_mod NetAddr-IP_mod Mail-SpamAssassin_mod Perl-Tk
+LOCMODS= DB_File_mod IO-Socket-INET6_mod IO-Socket-SSL_mod NetAddr-IP_mod Mail-SpamAssassin_mod DBD-mysql_mod
 
 CPAN_DEPENDS =	IO\:\:HTML \
 		HTTP\:\:Date \
@@ -153,6 +153,7 @@ CPAN_DEPENDS =	IO\:\:HTML \
 		Module\:\:Build \
 		Object\:\:Accessor \
 		CGI \
+		Tk \
 		UV
 
 CPAN_MODS =	Font\:\:TTF \
@@ -168,6 +169,11 @@ CPAN_MODS =	Font\:\:TTF \
 all:
 	git submodule update --init || true
 	@echo "There is no all target run make install but i did turn on the submodules"
+
+DBD-mysql_mod:
+	git submodule update --init $(subst _mod,, $@)
+	@export PERL5LIB=$(PERL5LIB); \
+	cd $(subst _mod,, $@) && git clean -x -f -d && perl Makefile.PL --mysql_config=/opt/mysql/bin/mysql_config  --with-mysql=/opt/mysql --ssl --libs="-L/opt/mysql/$(LIBDIR) -lmysqlclient -lpthread -lz -lm -ldl" && make && make DESTDIR=$(PERLTMP) install && touch ../$@
 
 Perl-Tk_mod:
 	git submodule update --init $(subst _mod,, $@)

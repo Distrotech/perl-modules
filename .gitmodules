@@ -16,3 +16,6 @@
 [submodule "Tk"]
 	path = Perl-Tk
 	url = ../Perl-Tk
+[submodule "DBD-mysql"]
+	path = DBD-mysql
+	url = ../perl-mysql
