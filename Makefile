@@ -154,6 +154,7 @@ CPAN_DEPENDS =	IO\:\:HTML \
 		Object\:\:Accessor \
 		CGI \
 		Tk \
+		Module\:\:ScanDeps \
 		UV
 
 CPAN_MODS =	Font\:\:TTF \
