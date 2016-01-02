@@ -174,7 +174,8 @@ all:
 DBD-mysql_mod:
 	git submodule update --init $(subst _mod,, $@)
 	@export PERL5LIB=$(PERL5LIB); \
-	cd $(subst _mod,, $@) && git clean -x -f -d && perl Makefile.PL --mysql_config=/opt/mysql/bin/mysql_config  --with-mysql=/opt/mysql --ssl --libs="-L/opt/mysql/$(LIBDIR) -lmysqlclient -lpthread -lz -lm -ldl" && make && make DESTDIR=$(PERLTMP) install && touch ../$@
+	cd $(subst _mod,, $@) && git clean -x -f -d && perl Makefile.PL --mysql_config=/opt/mysql/bin/mysql_config  --with-mysql=/opt/mysql --ssl --libs="-L/opt/mysql/$(LIBDIR) -lmysqlclient -lpthread -lz -lm -ldl" \
+                                                                        --cflags="-I/opt/mysql/include" && make && make DESTDIR=$(PERLTMP) install && touch ../$@
 
 Perl-Tk_mod:
 	git submodule update --init $(subst _mod,, $@)
